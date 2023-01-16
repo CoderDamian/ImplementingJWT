@@ -1,4 +1,4 @@
-﻿using MyAPI.DTOs;
+﻿using MyAPI.Models.DTOs;
 
 namespace MyAPI.Services
 {

@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="WebService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyWebService\MyWebService.csproj" />
+  </ItemGroup>
+
 </Project>
