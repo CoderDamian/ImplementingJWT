@@ -1,0 +1,27 @@
+﻿@page
+@model MyWebClient.Pages.LoginModel
+@{
+}
+
+<h1 class="display-4">Login</h1>
+
+<form class="needs-validation" method="post">
+    <div class="row">
+        <div class="col">
+            <label asp-for="UserDTO.UserName"></label>
+            <input asp-for="UserDTO.UserName" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label asp-for="UserDTO.Password"></label>
+            <input asp-for="UserDTO.Password" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <button class="btn-primary" type="submit">Login</button>
+    </div>
+</form>
+

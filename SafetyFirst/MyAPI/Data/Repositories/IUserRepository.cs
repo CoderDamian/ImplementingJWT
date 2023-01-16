@@ -1,7 +1,7 @@
-﻿using MyAPI.DTOs;
-using MyAPI.Models;
+﻿using MyAPI.Models;
+using MyAPI.Models.DTOs;
 
-namespace MyAPI.Repositories
+namespace MyAPI.Data.Repositories
 {
     public interface IUserRepository
     {

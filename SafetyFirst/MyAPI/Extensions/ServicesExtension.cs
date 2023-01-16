@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using MyAPI.Data;
+using MyAPI.Data.Repositories;
+using MyAPI.Services;
 using System.Text;
 
 namespace MyAPI.Extensions
 {
     public static class ServicesExtension
     {
-        public static void AddJWT(this IServiceCollection service)
+        public static void AddJWT(this IServiceCollection services)
         {
-            service.AddAuthentication(opt =>
+            services.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -26,6 +30,22 @@ namespace MyAPI.Extensions
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecretKey"))
                     };
                 });
+        }
+
+        public static void AddRepositories(this IServiceCollection services)
+        {
+            services.AddTransient<IUserRepository, UserRepository>();
+        }
+
+        public static void AddTokenServices(this IServiceCollection services)
+        {
+            services.AddTransient<ITokenService, TokenService>();
+        }
+
+        public static void AddDataBase(this IServiceCollection services, IConfiguration configuration)
+        {
+            var connectionString = configuration["ConnectionStrings:Oracle"];
+            services.AddDbContextPool<MyDbContext>(opt => opt.UseOracle(connectionString));
         }
     }
 }

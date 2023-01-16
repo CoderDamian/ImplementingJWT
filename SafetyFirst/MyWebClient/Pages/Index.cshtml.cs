@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MyAPI.Models.DTOs;
+using MyAPI.Services;
+using MyWebService;
 
 namespace MyWebClient.Pages
 {
@@ -12,9 +15,9 @@ namespace MyWebClient.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return Page();
         }
     }
 }

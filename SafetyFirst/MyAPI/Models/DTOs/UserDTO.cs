@@ -1,4 +1,4 @@
-﻿namespace MyAPI.DTOs
+﻿namespace MyAPI.Models.DTOs
 {
     public class UserDTO
     {

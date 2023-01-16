@@ -1,7 +1,7 @@
-﻿using MyAPI.DTOs;
-using MyAPI.Models;
+﻿using MyAPI.Models;
+using MyAPI.Models.DTOs;
 
-namespace MyAPI.Repositories
+namespace MyAPI.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -43,7 +43,7 @@ namespace MyAPI.Repositories
 
         public UserDTO? GetUser(User user)
         {
-            return _users.Where(u => u.UserName.Equals(user.UserName) && u.Password.Equals(user.Pasword)).FirstOrDefault();
+            return _users.Where(u => u.UserName.Equals(user.UserName) && u.Password.Equals(user.Password)).FirstOrDefault();
         }
     }
 }
